@@ -1,0 +1,55 @@
+.buttons {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  text-align: right;
+  z-index: 50;
+  list-style: none;
+}
+
+.button {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--color-secondary);
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  transition: color 0.3s ease;
+}
+
+.button a:hover {
+  color: #a8433d;
+  text-decoration: none;
+}
+
+#scholar-btn,
+#other-btn {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+#scholar-btn:hover,
+#other-btn:hover,
+#scholar-btn.is-active,
+#other-btn.is-active {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  #scholar-btn,
+  #other-btn,
+  .font-btn:not(.back-btn) {
+    display: none;
+  }
+
+  .buttons {
+    z-index: 1;
+    top: 75px;
+    right: 15px;
+  }
+
+  .button {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+}

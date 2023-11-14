@@ -1,0 +1,19 @@
+.loader {
+  position: fixed;
+  width: calc(100% - 85px);
+  height: 100vh;
+  background: linear-gradient(var(--color-secondary), #f27c76);
+  left: 85px;
+  top: 0;
+  z-index: 99;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .loader {
+    background: linear-gradient(90deg, var(--color-secondary), #f27c76);
+    width: 100%;
+    left: 0;
+    z-index: 10;
+  }
+}

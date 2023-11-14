@@ -1,0 +1,74 @@
+@font-face {
+  font-family: "friandise";
+  src: url("./assets/fonts/friandise/FriandiseNormal.otf") format("opentype");
+}
+@font-face {
+  font-family: "belladone";
+  src: url("./assets/fonts/Belladone-Demo.ttf") format("truetype");
+}
+@font-face {
+  font-family: "belle-allure";
+  src: url("./assets/fonts/BelleAllureCE-Fin.otf") format("opentype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  --color-black: #262222;
+  --color-white: #e0e0e0;
+  --color-primary: #f2f2e6;
+  --color-secondary: #d66a63;
+
+  font-size: 18px;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  min-height: 100vh;
+  background-color: #fff;
+  display: flex;
+  font-family: "friandise", helvetica, arial, sans-serif;
+  font-size: 16px;
+  overflow-x: hidden;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #cfcfcf;
+}
+::-webkit-scrollbar-thumb {
+  background: #6b6b6b;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
+
+@media (max-width: 768px) {
+  #root {
+    flex-direction: column;
+  }
+}

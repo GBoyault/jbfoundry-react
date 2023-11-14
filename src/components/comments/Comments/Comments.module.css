@@ -1,0 +1,47 @@
+.comments {
+  margin-top: 4rem;
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  background-color: #f7f7f7;
+}
+
+.more-button {
+  margin: 1rem auto;
+  background-color: var(--color-secondary);
+  color: #fff;
+  text-transform: uppercase;
+  display: block;
+  width: 300px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 25px;
+  transition: all 0.15s ease;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  border: none;
+  cursor: pointer;
+}
+
+.more-button:enabled:hover {
+  text-decoration: none;
+  background-color: #f27c76;
+}
+.more-button:enabled:active {
+  transform: scale(0.95);
+}
+
+.more-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .comments {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .more-button {
+    font-size: 14px;
+  }
+}

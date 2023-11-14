@@ -1,0 +1,25 @@
+.link {
+  margin: 1rem auto;
+  background-color: var(--color-secondary);
+  color: #fff;
+  text-transform: uppercase;
+  display: block;
+  width: 300px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 25px;
+  transition: all 0.25s ease;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+}
+
+.link:hover {
+  text-decoration: none;
+  background-color: #f27c76;
+}
+
+@media (max-width: 768px) {
+  .link {
+    font-size: 14px;
+  }
+}

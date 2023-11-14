@@ -1,0 +1,41 @@
+.main {
+  width: 100%;
+  padding-left: 85px;
+  min-height: 100vh;
+  background-color: var(--color-black);
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding-left: 0;
+    padding-top: 75px;
+  }
+}
+
+.error {
+  width: 100%;
+  padding-left: 85px;
+  min-height: 100%;
+  padding: 40px 15%;
+  font-family: "belle-allure";
+}
+.error p {
+  color: var(--color-white);
+  font-size: 24px;
+  line-height: 2.5;
+}
+
+.error p a {
+  font-size: 32px;
+  color: var(--color-secondary);
+}
+
+.error p a:hover {
+  color: var(--color-secondary);
+}
+
+.error h2 {
+  color: var(--color-secondary);
+  font-size: 3rem;
+  margin: 2rem 0;
+}

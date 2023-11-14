@@ -1,0 +1,32 @@
+.navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.navigation li {
+  list-style: none;
+  -webkit-writing-mode: vertical-lr;
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+
+  margin-top: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .navigation li {
+    -webkit-writing-mode: initial;
+    writing-mode: initial;
+    transform: none;
+    margin: 0;
+    font-size: 14px;
+  }
+
+  .navigation li:first-child {
+    margin-bottom: 8px;
+  }
+}

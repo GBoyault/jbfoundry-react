@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  max-width: 70%;
+  margin: 30px auto;
+}
+
+.col {
+  width: 50%;
+}
+.col > .img {
+  max-width: 100%;
+  margin: 0;
+}
+.col:first-child {
+  margin-right: 15px;
+}
+.col:last-child {
+  margin-left: 15px;
+}
+
+.img {
+  display: block;
+  max-width: 70%;
+  margin: 30px auto;
+}
+.img > img {
+  width: 100%;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .img {
+    max-width: 100%;
+    margin: 30px 30px;
+  }
+  .container {
+    max-width: 100%;
+    margin: 30px 30px;
+  }
+  /* .main-font p {
+    width: auto;
+    margin: 50px 30px;
+  } */
+  /* .h2-font {
+    max-width: 100%;
+    margin: 70px 30px;
+  } */
+}

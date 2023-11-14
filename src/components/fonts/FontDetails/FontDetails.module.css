@@ -1,0 +1,18 @@
+.font {
+}
+
+.title {
+  max-width: 50%;
+  margin: 50px auto;
+}
+
+.title img {
+  width: 100%;
+  filter: brightness(0);
+}
+
+.presentation {
+  width: 40%;
+  margin: 50px 30%;
+  text-align: center;
+}
