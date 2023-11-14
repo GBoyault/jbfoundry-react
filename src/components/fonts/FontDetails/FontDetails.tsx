@@ -15,7 +15,8 @@ export const FontDetails = ({ font }: FontDetailsProps) => {
   }
 
   const { title } = font
-  const { link_myfonts,
+  const {
+    link_myfonts,
     font_download,
     font_presentation,
     font_pdf_repeater,
