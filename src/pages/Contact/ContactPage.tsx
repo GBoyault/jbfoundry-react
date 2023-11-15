@@ -36,9 +36,17 @@ export const ContactPage = () => {
                 dangerouslySetInnerHTML={{ __html: presentation }}
               />
             )}
+            <p className={classes.label}>à propos</p>
+            <p>
+              À l'origine, jeanboyault.fr est un site WordPress réalisé il y a plusieurs années. Vous naviguez actuellement sur un projet de refonte technique, proposant une meilleure expérience utilisateur.
+            </p>
+            <p className={classes.label}>technos</p>
+            <p>
+              Le front est développé avec React et TypeScript, le site original sert de CMS headless grâce à l'API Rest de WordPress.
+            </p>
           </div>
           <div className={classes.col}>
-            <p className={classes.label}>address</p>
+            <p className={classes.label}>adresse</p>
             <p>
               365 rue des Durandys<br />
               71960 DAVAYÉ<br />
@@ -46,23 +54,28 @@ export const ContactPage = () => {
             </p>
             {data?.phone && (
               <>
-                <p className={classes.label}>phone</p>
+                <p className={classes.label}>téléphone</p>
                 <p>{data.phone}</p>
               </>
             )}
             {email && (
               <>
-                <p className={classes.label}>email</p>
+                <p className={classes.label}>e-mail</p>
                 <p >{email}</p>
               </>
             )}
-            <p className={classes.label}>conception et réalisation du site</p>
+            <p className={classes.label}>réalisation</p>
             <p>
               <a href="https://gabrielboyault.com/" target="_blank">Gabriel Boyault</a>
             </p>
-            {/* <p>
-            <Link to="/mentions-legales">Mentions légales</Link>
-          </p> */}
+            <p className={classes.label}>code source</p>
+            <p>
+              <a href="https://github.com/GBoyault/jbfoundry-react/" target="_blank" rel="noopener noreferrer">github</a>
+            </p>
+            <p className={classes.label}>site original</p>
+            <p>
+              <a href="https://www.jeanboyault.fr/" target="_blank">jeanboyault.fr</a>
+            </p>
           </div>
         </div>
       </>

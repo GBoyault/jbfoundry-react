@@ -104,7 +104,7 @@ export const CommentForm = forwardRef<HTMLDivElement, CommentFormPropsType>(({ o
               onBlur={messageBlurHandler}
               variant="outlined"
               error={messageHasError}
-              helperText={messageHasError ? 'Veuillez écrire un commentaire valide' : ''}
+              helperText={messageHasError ? 'Veuillez écrire un message' : ''}
               required
             />
           </FormControl>
@@ -120,7 +120,7 @@ export const CommentForm = forwardRef<HTMLDivElement, CommentFormPropsType>(({ o
               onBlur={nameBlurHandler}
               variant="standard"
               error={nameHasError}
-              helperText={nameHasError ? 'Veuillez entrez un nom' : ''}
+              helperText={nameHasError ? 'Veuillez entrez votre nom' : ''}
               required
             />
           </FormControl>
