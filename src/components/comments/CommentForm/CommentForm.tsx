@@ -1,16 +1,18 @@
-import { FormEvent } from "react";
+import { FormEvent, forwardRef } from "react";
 import TextField from '@mui/material/TextField';
 import { FormControl } from '@mui/material';
 import { useInput } from "../../../hooks";
-import classes from './CommentForm.module.css'
+import { commentPostDataType, Comment } from "../../../models";
 import { isNotEmpty, isEmail } from "../../../utils";
-import { commentPostDataType } from "../../../models";
+import classes from './CommentForm.module.css'
 
 type CommentFormPropsType = {
-  onSubmit: (commentData: commentPostDataType) => void
+  onSubmit: (commentData: commentPostDataType) => void,
+  onCancelReply: () => void,
+  replyTo: Comment | null
 }
 
-export const CommentForm = ({ onSubmit }: CommentFormPropsType) => {
+export const CommentForm = forwardRef<HTMLDivElement, CommentFormPropsType>(({ onSubmit, onCancelReply, replyTo }, ref) => {
   const {
     value: nameValue,
     isValid: nameIsValid,
@@ -53,6 +55,11 @@ export const CommentForm = ({ onSubmit }: CommentFormPropsType) => {
       content: messageValue
     }
 
+    if (replyTo) {
+      commentData.parent = replyTo.id
+      commentData.depth = replyTo.depth
+    }
+
     onSubmit(commentData)
 
     resetName()
@@ -60,12 +67,29 @@ export const CommentForm = ({ onSubmit }: CommentFormPropsType) => {
     resetMessage()
   };
 
+  const cancelReplyHandler = () => {
+    resetName()
+    resetEmail()
+    resetMessage()
+    onCancelReply()
+  }
+
   return (
-    <div className={classes['comment-form']}>
-      <h3>Laisser un commentaire</h3>
-      <p>
-        <small>Votre adresse e-mail ne sera pas publiée.</small>
-      </p>
+    <div className={classes['comment-form']} ref={ref}>
+      <h3>
+        {replyTo
+          ? `Répondre à ${replyTo.author_name}`
+          : 'Laisser un commentaire'
+        }
+      </h3>
+      {replyTo && (
+        <button
+          className={classes['cancel-reply-button']}
+          onClick={cancelReplyHandler}
+        >
+          Annuler votre réponse
+        </button>
+      )}
       <form onSubmit={submitHandler}>
         <div className={classes.col}>
           <FormControl>
@@ -115,6 +139,8 @@ export const CommentForm = ({ onSubmit }: CommentFormPropsType) => {
               helperText={emailHasError ? 'Veuillez entrez un email valide' : ''}
             />
           </FormControl>
+          <p><small>Votre adresse e-mail ne sera pas publiée.</small></p>
+
         </div>
         <div className={classes.col}>
           <button
@@ -128,4 +154,4 @@ export const CommentForm = ({ onSubmit }: CommentFormPropsType) => {
       </form>
     </div >
   )
-}
+})

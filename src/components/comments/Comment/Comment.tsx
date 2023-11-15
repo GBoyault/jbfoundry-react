@@ -4,10 +4,11 @@ import { Comment as CommentType } from "../../../models"
 import classes from './Comment.module.css'
 
 type CommentPropsType = {
-  comment: CommentType
+  comment: CommentType,
+  onReply: () => void
 }
 
-export const Comment = ({ comment }: CommentPropsType) => {
+export const Comment = ({ comment, onReply }: CommentPropsType) => {
   const { author_name } = comment
 
   const content = comment.content.rendered.replace(/\n/g, "<br />")
@@ -49,6 +50,13 @@ export const Comment = ({ comment }: CommentPropsType) => {
           className={classes.content}
           dangerouslySetInnerHTML={{ __html: content }}
         />
+        <button
+          onClick={onReply}
+          className={classes['reply-button']}
+          aria-label={`Répondre à ${author_name}`}
+        >
+          Répondre
+        </button>
       </div>
     </motion.li >
   )

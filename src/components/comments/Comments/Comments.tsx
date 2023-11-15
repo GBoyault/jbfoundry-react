@@ -1,8 +1,9 @@
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import { InfiniteData, useInfiniteQuery, useMutation } from "@tanstack/react-query"
 import { fetchCommentsByPostId, postCommentOnPost, queryClient } from "../../../services/wp-api"
 import { CommentList, CommentForm } from ".."
 import { Comment as CommentType, commentPostDataType, CommentsPageType } from "../../../models"
+import { FIVE_MINUTS } from "../../../utils"
 import classes from './Comments.module.css'
 
 type CommentsPropsType = {
@@ -11,6 +12,8 @@ type CommentsPropsType = {
 
 export const Comments = ({ postId }: CommentsPropsType) => {
   const loadMoreButtonRef = useRef<HTMLButtonElement>(null)
+  const formRef = useRef<HTMLDivElement>(null)
+  const [replyTo, setReplyTo] = useState<CommentType | null>(null)
 
   const {
     data, isError, error, fetchNextPage, hasNextPage, isFetchingNextPage
@@ -18,7 +21,8 @@ export const Comments = ({ postId }: CommentsPropsType) => {
     queryKey: ['comments', postId],
     queryFn: ({ signal, pageParam }) => fetchCommentsByPostId({ postId, pageParam, signal }),
     initialPageParam: 1,
-    getNextPageParam: (lastPage) => lastPage.next
+    getNextPageParam: (lastPage) => lastPage.next,
+    staleTime: FIVE_MINUTS
   })
 
   const { mutate } = useMutation({
@@ -70,8 +74,18 @@ export const Comments = ({ postId }: CommentsPropsType) => {
     }, 200)
   }
 
+  const replyHandler = (comment: CommentType) => {
+    setReplyTo(comment)
+    formRef.current?.scrollIntoView({ behavior: "smooth" })
+  }
+
+  const cancelReplyHandler = () => {
+    setReplyTo(null)
+  }
+
   const submitCommentHandler = (commentData: commentPostDataType) => {
     mutate(commentData)
+    setReplyTo(null)
   }
 
   let content = <p>Loading comments...</p>;
@@ -91,7 +105,10 @@ export const Comments = ({ postId }: CommentsPropsType) => {
 
     content = (
       <>
-        <CommentList comments={comments} />
+        <CommentList
+          comments={comments}
+          onReply={replyHandler}
+        />
         {hasNextPage && (
           <button
             ref={loadMoreButtonRef}
@@ -105,7 +122,12 @@ export const Comments = ({ postId }: CommentsPropsType) => {
             }
           </button>
         )}
-        <CommentForm onSubmit={submitCommentHandler} />
+        <CommentForm
+          ref={formRef}
+          replyTo={replyTo}
+          onSubmit={submitCommentHandler}
+          onCancelReply={cancelReplyHandler}
+        />
       </>
     )
   }

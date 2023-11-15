@@ -43,3 +43,16 @@
 .date {
 	margin-left: 0.5em;
 }
+
+.reply-button {
+	font-size: 14px;
+	color: grey;
+	font-family: inherit;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.reply-button:hover {
+	text-decoration: underline;
+}

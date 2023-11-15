@@ -71,3 +71,16 @@
   opacity: 0.3;
   cursor: not-allowed;
 }
+
+.cancel-reply-button {
+  font-size: 14px;
+  color: grey;
+  font-family: inherit;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.cancel-reply-button:hover {
+  text-decoration: underline;
+}

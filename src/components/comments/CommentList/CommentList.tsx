@@ -1,12 +1,15 @@
 import { Comment as CommentType } from '../../../models'
 import { Comment } from '..'
 import { sortCommentByThread } from '../../../utils'
+
 import classes from './CommentList.module.css'
+
 type CommentListPropsType = {
-  comments: CommentType[]
+  comments: CommentType[],
+  onReply: (comment: CommentType) => void,
 }
 
-export const CommentList = ({ comments }: CommentListPropsType) => {
+export const CommentList = ({ comments, onReply }: CommentListPropsType) => {
   const sorted = sortCommentByThread(comments)
 
   return (
@@ -14,7 +17,9 @@ export const CommentList = ({ comments }: CommentListPropsType) => {
       {sorted.map(comment => (
         <Comment
           key={comment.id}
-          comment={comment} />
+          comment={comment}
+          onReply={() => onReply(comment)}
+        />
       ))}
     </ul>
   )

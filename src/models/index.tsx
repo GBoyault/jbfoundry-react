@@ -115,5 +115,6 @@ export type commentPostDataType = {
   author_email: email,
   author_name: string,
   parent?: number,
-  content: string
+  content: string,
+  depth?: number
 }
