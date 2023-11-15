@@ -1,10 +1,10 @@
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { fetchPostBySlug } from '../../services/wp-api';
+import { fetchPostBySlug } from '../../services';
 import { PageLoader } from '../../components/layout';
 import { FontDetails } from '../../components/fonts';
 import { Comments } from '../../components/comments';
-import classes from './FontPage.module.css'
+import classes from './FontPage.module.css';
 
 export const FontPage = () => {
   const { fontSlug } = useParams();
@@ -17,9 +17,7 @@ export const FontPage = () => {
   let content = <PageLoader noAnim />;
 
   if (isError) {
-    content = (
-      <p>Erreur : {error.message}</p>
-    )
+    content = <p>Erreur : {error.message}</p>;
   }
 
   if (data) {
@@ -27,14 +25,10 @@ export const FontPage = () => {
       <>
         <PageLoader />
         <FontDetails font={data} />
-        <Comments postId={data.id}/>
+        <Comments postId={data.id} />
       </>
-    )
+    );
   }
 
-  return (
-    <div className={classes.font}>
-      {content}
-    </div >
-  )
-}
+  return <div className={classes.font}>{content}</div>;
+};

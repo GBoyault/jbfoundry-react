@@ -1,2 +1,2 @@
-export * from './FontItem/FontItem'
-export * from './FontDetails/FontDetails'
+export * from './FontItem/FontItem';
+export * from './FontDetails/FontDetails';

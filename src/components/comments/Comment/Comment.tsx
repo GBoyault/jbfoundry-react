@@ -1,35 +1,34 @@
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 
-import { Comment as CommentType } from "../../../models"
-import classes from './Comment.module.css'
+import { Comment as CommentType } from '../../../models';
+import classes from './Comment.module.css';
 
 type CommentPropsType = {
-  comment: CommentType,
-  onReply: () => void
-}
+  comment: CommentType;
+  onReply: () => void;
+};
 
 export const Comment = ({ comment, onReply }: CommentPropsType) => {
-  const { author_name } = comment
+  const { author_name } = comment;
 
-  const content = comment.content.rendered.replace(/\n/g, "<br />")
+  const content = comment.content.rendered.replace(/\n/g, '<br />');
   const date = new Date(comment.date).toLocaleString('fr-FR', {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
     hour: '2-digit',
-    minute: '2-digit'
+    minute: '2-digit',
   });
 
-  const depth = comment.depth ? comment.depth : 0
+  const depth = comment.depth ? comment.depth : 0;
 
-  let classNames = classes.comment
+  let classNames = classes.comment;
   if (comment.author > 0) {
-    classNames += ' ' + classes['is-admin']
+    classNames += ' ' + classes['is-admin'];
   }
   if (comment.notValidated) {
-    classNames += ' ' + classes['pending']
+    classNames += ' ' + classes['pending'];
   }
-
 
   return (
     <motion.li
@@ -40,10 +39,15 @@ export const Comment = ({ comment, onReply }: CommentPropsType) => {
     >
       <div className={classes.body}>
         <div className={classes.meta}>
-          <div className={classes.author} rel="author">{author_name}</div>
+          <div className={classes.author} rel="author">
+            {author_name}
+          </div>
           <time className={classes.date}>{date}</time>
           {comment.notValidated && (
-            <div className={classes['notice-pending']}>Votre commentaire est en attente de modération. Ceci est un aperçu, votre commentaire sera visible après sa validation.</div>
+            <div className={classes['notice-pending']}>
+              Votre commentaire est en attente de modération. Ceci est un
+              aperçu, votre commentaire sera visible après sa validation.
+            </div>
           )}
         </div>
         <div
@@ -58,6 +62,6 @@ export const Comment = ({ comment, onReply }: CommentPropsType) => {
           Répondre
         </button>
       </div>
-    </motion.li >
-  )
-}
+    </motion.li>
+  );
+};

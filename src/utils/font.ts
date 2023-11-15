@@ -1,4 +1,4 @@
-import { WPPost, Font } from "../models"
+import { WPPost, Font } from '../models';
 
 export const formatFontFromAPI = (post: WPPost): Font => {
   return {
@@ -6,5 +6,5 @@ export const formatFontFromAPI = (post: WPPost): Font => {
     id: post.ID,
     slug: post.post_name,
     acf: post.acf,
-  }
-}
+  };
+};

@@ -1,11 +1,11 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect } from 'react';
 
-import { Fancybox as NativeFancybox } from "@fancyapps/ui";
-import "@fancyapps/ui/dist/fancybox/fancybox.css";
+import { Fancybox as NativeFancybox } from '@fancyapps/ui';
+import '@fancyapps/ui/dist/fancybox/fancybox.css';
 
 type FancyBoxProps = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 function Fancybox({ children }: FancyBoxProps) {
   const containerRef = useRef(null);
@@ -13,7 +13,7 @@ function Fancybox({ children }: FancyBoxProps) {
   useEffect(() => {
     const container = containerRef.current;
 
-    const delegate = "[data-fancybox]";
+    const delegate = '[data-fancybox]';
     const options = {};
 
     NativeFancybox.bind(container, delegate, options);

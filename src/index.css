@@ -1,14 +1,14 @@
 @font-face {
-  font-family: "friandise";
-  src: url("./assets/fonts/friandise/FriandiseNormal.otf") format("opentype");
+  font-family: 'friandise';
+  src: url('./assets/fonts/friandise/FriandiseNormal.otf') format('opentype');
 }
 @font-face {
-  font-family: "belladone";
-  src: url("./assets/fonts/Belladone-Demo.ttf") format("truetype");
+  font-family: 'belladone';
+  src: url('./assets/fonts/Belladone-Demo.ttf') format('truetype');
 }
 @font-face {
-  font-family: "belle-allure";
-  src: url("./assets/fonts/BelleAllureCE-Fin.otf") format("opentype");
+  font-family: 'belle-allure';
+  src: url('./assets/fonts/BelleAllureCE-Fin.otf') format('opentype');
 }
 
 * {
@@ -36,7 +36,7 @@ html {
   min-height: 100vh;
   background-color: #fff;
   display: flex;
-  font-family: "friandise", helvetica, arial, sans-serif;
+  font-family: 'friandise', helvetica, arial, sans-serif;
   font-size: 16px;
   overflow-x: hidden;
   line-height: 1.2;

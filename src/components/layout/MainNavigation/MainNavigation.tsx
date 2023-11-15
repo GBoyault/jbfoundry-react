@@ -1,5 +1,5 @@
-import { NavLink } from 'react-router-dom'
-import classes from './MainNavigation.module.css'
+import { NavLink } from 'react-router-dom';
+import classes from './MainNavigation.module.css';
 
 export const MainNavigation = () => {
   return (
@@ -19,11 +19,12 @@ export const MainNavigation = () => {
           <a
             href="https://www.myfonts.com/foundry/JBFoundry"
             target="_blank"
-            rel="noopener noreferrer">
+            rel="noopener noreferrer"
+          >
             MyFonts
           </a>
         </li>
       </ul>
     </nav>
-  )
-}
+  );
+};

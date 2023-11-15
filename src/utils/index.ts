@@ -1,3 +1,3 @@
-export * from './time'
-export * from './font'
-export * from './comments'
+export * from './time';
+export * from './font';
+export * from './comments';

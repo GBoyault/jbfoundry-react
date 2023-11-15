@@ -1,12 +1,12 @@
-import { FontImage as FontImageType, hasURL } from '../../../models'
-import Fancybox from '../../ui/Fancybox/Fancybox'
-import classes from './FontImage.module.css'
+import { FontImage as FontImageType, hasURL } from '../../../models';
+import Fancybox from '../../ui/Fancybox/Fancybox';
+import classes from './FontImage.module.css';
 
-type SingleImageProps = {
-  url: string
-}
+type FancyboxImageProps = {
+  url: string;
+};
 
-const SingleImage = ({ url }: SingleImageProps) => {
+const FancyboxImage = ({ url }: FancyboxImageProps) => {
   return (
     <Fancybox>
       <a
@@ -15,21 +15,15 @@ const SingleImage = ({ url }: SingleImageProps) => {
         target="_blank"
         data-fancybox="gallery"
       >
-        <img
-          src={url}
-          alt=""
-          decoding="async"
-          loading="lazy"
-        />
-      </a >
+        <img src={url} alt="" decoding="async" loading="lazy" />
+      </a>
     </Fancybox>
-  )
-}
-
+  );
+};
 
 type FontImageProps = {
-  image: FontImageType
-}
+  image: FontImageType;
+};
 
 export const FontImage = ({ image }: FontImageProps) => {
   const leftValidation = hasURL.safeParse(image.font_image_left);
@@ -39,16 +33,16 @@ export const FontImage = ({ image }: FontImageProps) => {
     return (
       <div className={classes.container}>
         <div className={classes.col}>
-          <SingleImage url={leftValidation.data.url} />
+          <FancyboxImage url={leftValidation.data.url} />
         </div>
         <div className={classes.col}>
-          <SingleImage url={rightValidation.data.url} />
+          <FancyboxImage url={rightValidation.data.url} />
         </div>
       </div>
-    )
+    );
   }
 
   if (leftValidation.success) {
-    return <SingleImage url={leftValidation.data.url} />
+    return <FancyboxImage url={leftValidation.data.url} />;
   }
-}
+};

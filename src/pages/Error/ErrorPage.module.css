@@ -17,7 +17,7 @@
   padding-left: 85px;
   min-height: 100%;
   padding: 40px 15%;
-  font-family: "belle-allure";
+  font-family: 'belle-allure';
 }
 .error p {
   color: var(--color-white);

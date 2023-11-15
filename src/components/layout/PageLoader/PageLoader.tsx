@@ -1,14 +1,13 @@
-import { motion } from 'framer-motion'
-import classes from './PageLoader.module.css'
+import { motion } from 'framer-motion';
+import classes from './PageLoader.module.css';
 
 type PageLoaderPropsType = {
-  noAnim?: boolean
-}
+  noAnim?: boolean;
+};
 
 export const PageLoader = ({ noAnim }: PageLoaderPropsType) => {
-
   if (noAnim) {
-    return <div className={classes.loader} />
+    return <div className={classes.loader} />;
   }
 
   return (
@@ -19,5 +18,5 @@ export const PageLoader = ({ noAnim }: PageLoaderPropsType) => {
       exit={{ scaleX: 1, transition: { duration: 0.35 } }}
       style={{ originX: 0 }}
     />
-  )
-}
+  );
+};

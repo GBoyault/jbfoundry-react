@@ -2,57 +2,56 @@
 }
 
 .body {
-	margin-bottom: 15px;
-	padding: 10px 15px;
-	box-shadow: 2px 6px 15px rgb(175, 175, 175);
-	border-radius: 5px;
-	background-color: white;
-	letter-spacing: 0.05em;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  box-shadow: 2px 6px 15px rgb(175, 175, 175);
+  border-radius: 5px;
+  background-color: white;
+  letter-spacing: 0.05em;
 }
 
 .is-admin .body {
-	border: 1px solid var(--color-secondary);
-	box-shadow: none;
+  border: 1px solid var(--color-secondary);
+  box-shadow: none;
 }
 .pending .body {
-	background-color: #e6e6e6;
-	
+  background-color: #e6e6e6;
 }
 
 .body p {
-	margin: 0;
-	font-size: 1.1rem;
+  margin: 0;
+  font-size: 1.1rem;
 }
 
 .author {
-	display: inline-block;
-	font-style: normal;
-	text-transform: uppercase;
-	color: var(--color-secondary);
-	font-weight: 700;
-	letter-spacing: 0.05em;
+  display: inline-block;
+  font-style: normal;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  font-weight: 700;
+  letter-spacing: 0.05em;
 }
 
 .meta {
-	display: inline-block;
-	color: grey;
-	font-size: 14px;
-	margin-bottom: 8px;
+  display: inline-block;
+  color: grey;
+  font-size: 14px;
+  margin-bottom: 8px;
 }
 
 .date {
-	margin-left: 0.5em;
+  margin-left: 0.5em;
 }
 
 .reply-button {
-	font-size: 14px;
-	color: grey;
-	font-family: inherit;
-	background-color: transparent;
-	border: none;
-	cursor: pointer;
+  font-size: 14px;
+  color: grey;
+  font-family: inherit;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .reply-button:hover {
-	text-decoration: underline;
+  text-decoration: underline;
 }

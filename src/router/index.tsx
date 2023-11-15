@@ -1,15 +1,9 @@
-import {
-  RootPage,
-  HomePage,
-  FontPage,
-  ContactPage,
-  ErrorPage,
-} from '../pages'
+import { RootPage, HomePage, FontPage, ContactPage, ErrorPage } from '../pages';
 
 export const routes = [
   {
     path: '*',
-    element: <ErrorPage />
+    element: <ErrorPage />,
   },
   {
     path: '/',
@@ -26,7 +20,7 @@ export const routes = [
       {
         path: 'contact',
         element: <ContactPage />,
-      }
+      },
     ],
-  }
-]
+  },
+];

@@ -1,7 +1,6 @@
-import { Outlet } from 'react-router-dom'
-import { Header } from '../../components/layout'
-import classes from './RootPage.module.css'
-
+import { Outlet } from 'react-router-dom';
+import { Header } from '../../components/layout';
+import classes from './RootPage.module.css';
 
 export const RootPage = () => {
   return (
@@ -11,5 +10,5 @@ export const RootPage = () => {
         <Outlet />
       </main>
     </>
-  )
-}
+  );
+};
