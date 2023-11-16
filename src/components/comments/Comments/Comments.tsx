@@ -9,7 +9,7 @@ import {
   postCommentOnPost,
   queryClient,
 } from '../../../services';
-import { CommentList, CommentForm } from '..';
+import { CommentList, CommentForm, CommentLoader } from '..';
 import {
   Comment as CommentType,
   commentPostDataType,
@@ -112,13 +112,14 @@ export const Comments = ({ postId }: CommentsPropsType) => {
     setReplyTo(null);
   };
 
-  let content = <p>Loading comments...</p>;
+  let content = <CommentLoader />;
 
   if (isError) {
     content = <p>Erreur : {error.message}</p>;
   }
 
   if (data) {
+    console.log(data);
     const comments: CommentType[] = [];
 
     for (const page of data.pages) {
@@ -128,6 +129,12 @@ export const Comments = ({ postId }: CommentsPropsType) => {
     content = (
       <>
         <CommentList comments={comments} onReply={replyHandler} />
+        {comments.length === 0 && (
+          <p style={{ textAlign: 'center' }}>
+            Aucun commentaire sur cette police, soyez le premier à en écrire un
+            !
+          </p>
+        )}
         {hasNextPage && (
           <button
             ref={loadMoreButtonRef}
