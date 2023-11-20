@@ -119,7 +119,6 @@ export const Comments = ({ postId }: CommentsPropsType) => {
   }
 
   if (data) {
-    console.log(data);
     const comments: CommentType[] = [];
 
     for (const page of data.pages) {

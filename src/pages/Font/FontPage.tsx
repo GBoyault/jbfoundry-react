@@ -4,6 +4,7 @@ import { fetchPostBySlug } from '../../services';
 import { PageLoader } from '../../components/layout';
 import { FontDetails } from '../../components/fonts';
 import { Comments } from '../../components/comments';
+
 import classes from './FontPage.module.css';
 
 export const FontPage = () => {
