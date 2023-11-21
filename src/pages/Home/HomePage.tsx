@@ -5,8 +5,6 @@ import { PageLoader } from '../../components/layout';
 import { FontItem } from '../../components/fonts';
 import classes from './HomePage.module.css';
 
-// const fontsToPrefetch = ['belle-allure', 'gaston', 'belle-allure-cadeau', 'belle-allure-autrefois', 'simple-ronde']
-
 export const HomePage = () => {
   const { data, isError } = useQuery({
     queryKey: ['fonts'],
