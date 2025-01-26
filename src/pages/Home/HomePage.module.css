@@ -11,3 +11,8 @@
     margin: 0;
   }
 }
+
+.error {
+  color: #fff;
+  padding: 1rem;
+}

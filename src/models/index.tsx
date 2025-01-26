@@ -6,7 +6,7 @@ export const hasURL = z.object({
 
 export const fontPdfSchema = z.object({
   font_pdf_title: z.string(),
-  font_pdf_file: hasURL,
+  font_pdf_file: z.union([hasURL, z.boolean()]),
 });
 
 export const emailSchema = z.string().email();
@@ -26,7 +26,7 @@ export const fontACFSchema = z.object({
   font_presentation: z.string(),
   link_myfonts: z.string(),
   font_download: hasURL.or(z.boolean()),
-  font_pdf_repeater: fontPdfSchema.array().or(z.boolean()),
+  font_pdf_repeater: z.union([fontPdfSchema.array(), z.boolean()]),
   font_images_repeater: fontImageSchema.array(),
 });
 

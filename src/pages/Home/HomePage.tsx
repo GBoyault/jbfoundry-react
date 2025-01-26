@@ -24,7 +24,9 @@ export const HomePage = () => {
   let content = <PageLoader noAnim />;
 
   if (isError) {
-    content = <p>Erreur lors du chargement des polices</p>;
+    content = (
+      <p className={classes.error}>Erreur lors du chargement des polices</p>
+    );
   }
 
   if (data) {
