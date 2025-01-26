@@ -63,7 +63,10 @@ export const FontDetails = ({ font }: FontDetailsProps) => {
             key={index}
             link={{
               title: pdf.font_pdf_title,
-              url: pdf.font_pdf_file.url,
+              url:
+                typeof pdf.font_pdf_file === 'object'
+                  ? pdf.font_pdf_file.url
+                  : '',
             }}
           />
         ))}
